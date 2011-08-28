@@ -35,7 +35,7 @@ namespace FirstFlushPipe
             if (len != 0 && wid != 0)
             {
                 double vd = (wid * len) * 0.0005;
-                textVolDiverted.Text = vd.ToString();
+                textVolDiverted.Text = vd.ToString("#.##");
                 volDiverted = vd;
             }
 
@@ -71,7 +71,7 @@ namespace FirstFlushPipe
             double r = volDiverted / (pi * plen);
             r = Math.Sqrt(r);
             double d = (r * 2) / 0.001;
-            labelPipeDiameter.Text = d.ToString();
+            labelPipeDiameter.Text = d.ToString("#.##");
 
 
         }
@@ -83,11 +83,16 @@ namespace FirstFlushPipe
             double sq = (pdia/2 * 0.001) * (pdia/2 * 0.001);
             double h = volDiverted / (pi * sq);
             //double r = h / 2;
-            labelPipeLength.Text = h.ToString();
+            labelPipeLength.Text = h.ToString("#.##");
 
         }
 
-        private void buttonReset_Click(object sender, EventArgs e)
+        private void buttonReset1_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+
+        private void reset()
         {
             textPipeDiameter.Text = "";
             textPipeLength.Text = "";
@@ -96,7 +101,21 @@ namespace FirstFlushPipe
             textVolDiverted.Text = "0.00";
             labelPipeLength.Text = "0.00";
             labelPipeDiameter.Text = "0.00";
+            tab1.TabPages[0].Show();
+            tab1.SelectedIndex = 0;
         }
+
+        private void buttonReset3_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+
+        private void buttonReset2_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+
+       
 
     }
 }
